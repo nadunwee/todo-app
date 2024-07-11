@@ -13,6 +13,9 @@ export default {
         appPurple: "#6C63FF",
         darkAppPurple: "#5850DD",
       },
+      textColor: {
+        appPurple: "#6C63FF",
+      },
     },
   },
   plugins: [],
