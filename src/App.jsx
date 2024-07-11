@@ -1,5 +1,6 @@
 import Controls from "./components/Controls";
 import Header from "./components/Header";
+import NewNote from "./components/NewNote";
 import Notes from "./components/Notes";
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
       <Header />
       <Controls />
       <Notes />
+      <NewNote />
     </>
   );
 };
