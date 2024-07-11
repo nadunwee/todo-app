@@ -1,0 +1,5 @@
+/* customStyles.css */
+input[type="checkbox"].custom-checkbox:checked {
+  background-color: #6c63ff; /* Your desired color */
+  border-color: #6c63ff; /* Border color to match */
+}
