@@ -1,16 +1,27 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Modal from "./Modal";
 
-const NewNote = () => {
+const NewNote = ({ onApplyBtn }) => {
   const [showNewNoteModal, setShowNewNoteModal] = useState(false);
+
+  const dialogRef = useRef();
 
   function newNoteBtnClick() {
     setShowNewNoteModal(true);
   }
 
+  function closeModal() {
+    setShowNewNoteModal(false);
+    if (dialogRef.current) {
+      dialogRef.current.close(); // Close the modal when canceled
+    }
+  }
+
   return (
     <>
-      {showNewNoteModal && <Modal />}
+      {showNewNoteModal && (
+        <Modal ref={dialogRef} onClose={closeModal} onApplyBtn={onApplyBtn} />
+      )}
       <div className="fixed bottom-1/4 right-1/4 ">
         <button
           onClick={newNoteBtnClick}
