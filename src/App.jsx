@@ -6,6 +6,7 @@ import NewNote from "./components/NewNote";
 import Notes from "./components/Notes";
 
 const App = () => {
+  const [searchedNote, setSearchedNote] = useState("");
   const [notes, setNotes] = useState(() => {
     // Initialize state from local storage
     const savedNotes = localStorage.getItem("notes");
@@ -20,11 +21,20 @@ const App = () => {
     });
   }
 
+  function handleSearchBtnClick(searchedNote) {
+    setSearchedNote(searchedNote);
+  }
+
+  let filteredNotes = notes;
+  if (notes.length > 0 && searchedNote) {
+    filteredNotes = notes.filter((note) => note === searchedNote);
+  }
+
   return (
     <>
       <Header />
-      <Controls />
-      <Notes notes={notes} />
+      <Controls onSearchBtn={handleSearchBtnClick} />
+      <Notes notes={filteredNotes} />
       <NewNote onApplyBtn={handleApplyBtnClick} />
     </>
   );

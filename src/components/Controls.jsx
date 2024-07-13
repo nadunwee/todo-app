@@ -3,11 +3,12 @@ import lightModeImg from "../assets/light-mode.png";
 import showMoreImg from "../assets/down-arrow.png";
 import searchIconImg from "../assets/search-icon.png";
 
-const Controls = () => {
+const Controls = ({ onSearchBtn }) => {
   return (
     <section className="flex justify-center gap-10 mt-4 items-center">
       <div className="relative w-[500px]">
         <input
+          onChange={(e) => onSearchBtn(e.target.value)}
           type="text"
           className="border-appPurple border rounded focus:outline-none focus:ring-2 focus:ring-appPurple w-full h-[28px] py-4 pl-10 pr-2"
           placeholder="Search notes..."

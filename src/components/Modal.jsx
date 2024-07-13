@@ -1,8 +1,9 @@
 import { forwardRef, useRef } from "react";
+import { createPortal } from "react-dom";
 
 const Modal = forwardRef(({ onClose, onApplyBtn }, ref) => {
   const newNote = useRef();
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
       onClick={onClose}
@@ -39,7 +40,8 @@ const Modal = forwardRef(({ onClose, onApplyBtn }, ref) => {
           </button>
         </form>
       </dialog>
-    </div>
+    </div>,
+    document.getElementById("modal")
   );
 });
 
