@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import Modal from "./Modal";
 
-const NewNote = ({ onApplyBtn }) => {
+const NewNote = () => {
   const [showNewNoteModal, setShowNewNoteModal] = useState(false);
 
   const dialogRef = useRef();
@@ -19,9 +19,7 @@ const NewNote = ({ onApplyBtn }) => {
 
   return (
     <>
-      {showNewNoteModal && (
-        <Modal ref={dialogRef} onClose={closeModal} onApplyBtn={onApplyBtn} />
-      )}
+      {showNewNoteModal && <Modal ref={dialogRef} onClose={closeModal} />}
       <div className="fixed bottom-1/4 right-1/4 ">
         <button
           onClick={newNoteBtnClick}

@@ -1,7 +1,9 @@
-import { forwardRef, useRef } from "react";
+import { forwardRef, useContext, useRef } from "react";
 import { createPortal } from "react-dom";
+import { NoteContext } from "../context/notes-context";
 
-const Modal = forwardRef(({ onClose, onApplyBtn }, ref) => {
+const Modal = forwardRef(({ onClose }, ref) => {
+  const { onApplyBtn } = useContext(NoteContext);
   const newNote = useRef();
   return createPortal(
     <div
